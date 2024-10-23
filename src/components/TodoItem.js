@@ -3,7 +3,6 @@ import { Button, Grid2 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckIcon from "@mui/icons-material/Check";
 import UndoIcon from "@mui/icons-material/Undo";
-import React from "react";
 
 const TodoItemContainer = styled(Grid2)(() => ({
   padding: "10px 0",
@@ -14,6 +13,7 @@ const TodoItemContainer = styled(Grid2)(() => ({
 
 const ButtonWrapper = styled("div")(() => ({
   display: "flex",
+  justifyContent: "flex-end",
   gap: "5px",
 }));
 
@@ -63,6 +63,12 @@ const TodoTask = styled("p")(({ isComplete }) => ({
   },
 }));
 
+const AuthorWrapper = styled("div")(() => ({
+  color: "#888",
+  fontSize: "1rem",
+  textAlign: "right",
+}));
+
 const TodoItem = ({ item, idx, deleteItem, toggleComplete }) => {
   return (
     <TodoItemContainer container spacing={2} key={idx}>
@@ -90,6 +96,9 @@ const TodoItem = ({ item, idx, deleteItem, toggleComplete }) => {
             </ButtonDone>
           )}
         </ButtonWrapper>
+        <AuthorWrapper>
+          <p>Author: {item.author.name}</p>
+        </AuthorWrapper>
       </Grid2>
     </TodoItemContainer>
   );

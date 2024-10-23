@@ -77,6 +77,7 @@ const TodoPage = ({ setUser }) => {
 
   const getTasks = async () => {
     const res = await api.get("/tasks");
+    console.log("taskList", res.data.data);
     setTodoList(res.data.data);
   };
 
